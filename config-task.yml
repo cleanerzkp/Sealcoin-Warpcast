@@ -1,9 +1,11 @@
 # Name and metadata of your task
-task_name: 'task name'
-author: 'Koii'
-description: 'description'
-repositoryUrl: 'https://github.com/koii-network/task-template' #replace with your own repo url
-imageUrl: 'imageUrl'
+task_name: 'Sealcoin Warpcast Archiver'
+author: 'cleanerzkp'
+description: 'Participate in archiving Warpcast content by running this task.
+Help preserve data and earn SealCoin in this Proof of Concept Hackathon Project.
+The base bounty per round is 100 SEAL, divided among participants.'
+repositoryUrl: 'https://github.com/cleanerzkp/Sealcoin-Warpcast'
+imageUrl: 'ipfs://bafybeibf6o3xospzjum6r46oweynwbt5vwsk77znkja3fotmgfs24zojni/'
 
 # task_executable_network : DEVELOPMENT, ARWEAVE or IPFS
 # IPFS is the default value, as the CLI automatically manages the upload process via the Koii Storage SDK.
@@ -17,12 +19,12 @@ round_time: 1500
 audit_window: 350
 submission_window: 350
 
-# minimum_stake_amount: The minimum amount of KOII that a user must stake in order to participate in the task
+# minimum_stake_amount: The minimum amount of SEAL that a user must stake in order to participate in the task
 minimum_stake_amount: 1.9
 
-# total_bounty_amount cannot be grater than bounty_amount_per_round
+# total_bounty_amount cannot be greater than bounty_amount_per_round
 # total bounty_amount: The total bounty amount that will be distributed to the task. (Not accepted in case of update task)
-total_bounty_amount: 100
+total_bounty_amount: 9998
 bounty_amount_per_round: 100
 
 # allowed_failed_distributions: Number of times re-submission is allowed for the distribution list in case of an audit.
@@ -32,7 +34,7 @@ allowed_failed_distributions: 3
 space: 1
 
 # Note that the value field in RequirementTag is optional, so it is up to you to include it or not based on your use case.
-# To add more global variables and task variables, please refer the type,value, description format shown below
+# To add more global variables and task variables, please refer the type, value, description format shown below
 
 requirementsTags:
   - type: CPU
@@ -42,10 +44,9 @@ requirementsTags:
   - type: STORAGE
     value: '5 GB'
 
-# OPTIONAL variables variables for creating task / REQUIRED variables for update task
+# OPTIONAL variables for creating task / REQUIRED variables for update task
 
 # ONLY provide the task_id and migrationDescription if you are updating the task otherwise leave blank
-# task_id: Previous task id
 task_id: ''
 
 # migrationDescription: Provide the description for changes made in new version of task
