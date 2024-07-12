@@ -1,11 +1,13 @@
 # Name and metadata of your task
-task_name: 'Sealcoin Warpcast Archiver'
+task_name: 'Sealcoin Warpcast'
 author: 'cleanerzkp'
 description: 'Participate in archiving Warpcast content by running this task.
 Help preserve data and earn SealCoin in this Proof of Concept Hackathon Project.
-The base bounty per round is 100 SEAL, divided among participants.'
+The base bounty per round is 10 SEAL, divided among participants.'
 repositoryUrl: 'https://github.com/cleanerzkp/Sealcoin-Warpcast'
 imageUrl: 'ipfs://bafybeibf6o3xospzjum6r46oweynwbt5vwsk77znkja3fotmgfs24zojni/'
+taskID: "9qAs2EqfsGyrUGULQRLTNgfuLbBLU4PFM48N6XFxg76M"
+KPL token: "https://explorer.koii.live/address/FRW5UnyyniEachmKrPk5eDo8MNcuhwTro4Y1hwuNKgXp"
 
 # task_executable_network : DEVELOPMENT, ARWEAVE or IPFS
 # IPFS is the default value, as the CLI automatically manages the upload process via the Koii Storage SDK.
@@ -24,8 +26,8 @@ minimum_stake_amount: 1.9
 
 # total_bounty_amount cannot be greater than bounty_amount_per_round
 # total bounty_amount: The total bounty amount that will be distributed to the task. (Not accepted in case of update task)
-total_bounty_amount: 9998
-bounty_amount_per_round: 100
+total_bounty_amount: 1000
+bounty_amount_per_round: 10
 
 # allowed_failed_distributions: Number of times re-submission is allowed for the distribution list in case of an audit.
 allowed_failed_distributions: 3
