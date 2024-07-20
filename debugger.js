@@ -77,17 +77,52 @@ class Debugger {
   }
 
   static async gettask_audit_program() {
-    const connection = new Connection('https://testnet.koii.network');
-    const taskId = Debugger.taskID;
-    const accountInfo = await connection.getAccountInfo(new PublicKey(taskId));
-    if (!accountInfo) {
-      console.log(`${taskId} doesn't contain any distribution list data`);
+    try {
+      const connection = new Connection('https://testnet.koii.network');
+      const taskId = Debugger.taskID;
+      const accountInfo = await connection.getAccountInfo(new PublicKey(taskId));
+      
+      if (!accountInfo) {
+        console.log(`${taskId} doesn't contain any distribution list data`);
+        return null;
+      }
+      
+      let dataString = accountInfo.data.toString('utf8');
+      console.log('Raw data:', dataString);
+  
+      // Remove any non-JSON characters from the beginning of the string
+      dataString = dataString.replace(/^[^{]*/, '');
+  
+      // Remove any non-JSON characters from the end of the string
+      dataString = dataString.replace(/[^}]*$/, '');
+  
+      console.log('Cleaned data:', dataString);
+  
+      try {
+        const data = JSON.parse(dataString);
+        console.log('Parsed data:', data);
+        if (data && data.task_audit_program) {
+          console.log('task_audit_program:', data.task_audit_program);
+          return data.task_audit_program;
+        } else {
+          console.log('task_audit_program not found in parsed data');
+          return null;
+        }
+      } catch (parseError) {
+        console.error('Error parsing JSON:', parseError);
+        // If JSON parsing fails, try to extract the task_audit_program directly
+        const match = dataString.match(/"task_audit_program"\s*:\s*"([^"]+)"/);
+        if (match && match[1]) {
+          console.log('Extracted task_audit_program:', match[1]);
+          return match[1];
+        }
+        console.log('Failed to extract task_audit_program');
+        return null;
+      }
+    } catch (error) {
+      console.error('Error fetching task audit program:', error);
       return null;
     }
-
-    const data = JSON.parse(accountInfo.data.toString());
-    console.log('data.task_audit_program', data.task_audit_program)
-    return data.task_audit_program;
   }
 }
 
